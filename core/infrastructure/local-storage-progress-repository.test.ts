@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import type { UnitProgress } from '../domain/models'
+import type { QuizProgress, QuizRef } from '../domain/models'
 import { LocalStorageProgressRepository } from './local-storage-progress-repository'
 
 /** Minimal in-memory Storage double so the adapter can be tested without a browser. */
@@ -13,8 +13,9 @@ class MemoryStorage {
   key(index: number): string | null { return [...this.store.keys()][index] ?? null }
 }
 
-const progress: UnitProgress = {
-  unitId: 'u1',
+const ref: QuizRef = { bookId: 'b1', unitId: 'u1', quizId: 'z1' }
+const progress: QuizProgress = {
+  ...ref,
   attempts: 2,
   bestScore: 0.8,
   completedAt: '2026-01-01T00:00:00.000Z',
@@ -30,23 +31,29 @@ describe('LocalStorageProgressRepository', () => {
     vi.restoreAllMocks()
   })
 
-  it('returns null for a unit that has no stored progress', async () => {
+  it('returns null for a quiz that has no stored progress', async () => {
     const repository = new LocalStorageProgressRepository()
-    expect(await repository.getUnitProgress('u1')).toBeNull()
+    expect(await repository.getQuizProgress(ref)).toBeNull()
   })
 
-  it('round-trips saved progress', async () => {
+  it('round-trips saved progress under a book/unit/quiz key', async () => {
     const repository = new LocalStorageProgressRepository()
-    await repository.saveUnitProgress(progress)
-    expect(await repository.getUnitProgress('u1')).toEqual(progress)
+    await repository.saveQuizProgress(progress)
+    expect(await repository.getQuizProgress(ref)).toEqual(progress)
+  })
+
+  it('scopes progress by the full book/unit/quiz key', async () => {
+    const repository = new LocalStorageProgressRepository()
+    await repository.saveQuizProgress(progress)
+    expect(await repository.getQuizProgress({ ...ref, quizId: 'other' })).toBeNull()
   })
 
   it('discards a corrupt entry and logs, rather than throwing', async () => {
     const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
-    localStorage.setItem('3jongi:v1:progress:u1', '{ not valid json')
+    localStorage.setItem('3jongi:v1:progress:b1:u1:z1', '{ not valid json')
 
     const repository = new LocalStorageProgressRepository()
-    expect(await repository.getUnitProgress('u1')).toBeNull()
+    expect(await repository.getQuizProgress(ref)).toBeNull()
     expect(errorSpy).toHaveBeenCalledOnce()
   })
 
@@ -54,7 +61,7 @@ describe('LocalStorageProgressRepository', () => {
     vi.stubGlobal('localStorage', undefined)
     const repository = new LocalStorageProgressRepository()
 
-    await expect(repository.getUnitProgress('u1')).resolves.toBeNull()
-    await expect(repository.saveUnitProgress(progress)).resolves.toBeUndefined()
+    await expect(repository.getQuizProgress(ref)).resolves.toBeNull()
+    await expect(repository.saveQuizProgress(progress)).resolves.toBeUndefined()
   })
 })

@@ -1,26 +1,38 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { Unit } from '~~/core/domain/models'
+import type { Question, Quiz } from '~~/core/domain/models'
 import type { QuizResult, QuizSession } from '~~/core/domain/quiz'
-import { isCorrect } from '~~/core/domain/quiz'
+import { grade } from '~~/core/domain/quiz'
 
-const props = defineProps<{ unit: Unit; session: QuizSession; result: QuizResult }>()
+const props = defineProps<{
+  quiz: Quiz
+  session: QuizSession
+  result: QuizResult
+  unitPath: string
+}>()
 const emit = defineEmits<{ restart: [] }>()
 
 const percent = computed(() => Math.round(props.result.score * 100))
 
-const review = computed(() =>
-  props.unit.questions.map((question) => {
-    const chosen = question.choices.find((choice) => choice.id === props.session.answers[question.id])
+/** Builds a review row per question, dispatching label lookup on question type. */
+function reviewEntry(question: Question, answer: string | undefined) {
+  const isCorrect = grade(question, answer)
+  if (question.type === 'multiple-choice-meaning') {
+    const chosen = question.choices.find((choice) => choice.id === answer)
     const correct = question.choices.find((choice) => choice.id === question.correctChoiceId)
     return {
       id: question.id,
       prompt: question.prompt,
+      isCorrect,
       chosenLabel: chosen?.label ?? '—',
       correctLabel: correct?.label ?? '—',
-      isCorrect: isCorrect(question, props.session.answers[question.id]),
     }
-  }),
+  }
+  return { id: question.id, prompt: question.prompt, isCorrect, chosenLabel: '—', correctLabel: '—' }
+}
+
+const review = computed(() =>
+  props.quiz.questions.map((question) => reviewEntry(question, props.session.answers[question.id])),
 )
 </script>
 
@@ -58,7 +70,7 @@ const review = computed(() =>
         variant="soft"
         @click="emit('restart')"
       />
-      <UButton to="/" label="Back to units" color="neutral" variant="ghost" />
+      <UButton :to="unitPath" label="Back to quizzes" color="neutral" variant="ghost" />
     </div>
   </div>
 </template>

@@ -1,4 +1,4 @@
-import type { Unit, UnitProgress } from './models'
+import type { Book, Quiz, QuizProgress, QuizRef, Unit } from './models'
 
 /**
  * Read access to quiz content. A bundled/static implementation backs the
@@ -6,8 +6,10 @@ import type { Unit, UnitProgress } from './models'
  * later without changing any caller.
  */
 export interface ContentRepository {
-  listUnits(): Promise<Unit[]>
-  getUnit(id: string): Promise<Unit | null>
+  listBooks(): Promise<Book[]>
+  getBook(bookId: string): Promise<Book | null>
+  getUnit(bookId: string, unitId: string): Promise<Unit | null>
+  getQuiz(bookId: string, unitId: string, quizId: string): Promise<Quiz | null>
 }
 
 /**
@@ -16,6 +18,6 @@ export interface ContentRepository {
  * interface.
  */
 export interface ProgressRepository {
-  getUnitProgress(unitId: string): Promise<UnitProgress | null>
-  saveUnitProgress(progress: UnitProgress): Promise<void>
+  getQuizProgress(ref: QuizRef): Promise<QuizProgress | null>
+  saveQuizProgress(progress: QuizProgress): Promise<void>
 }

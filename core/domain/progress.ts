@@ -1,8 +1,8 @@
-import type { UnitProgress } from './models'
+import type { QuizProgress, QuizRef } from './models'
 import type { QuizResult } from './quiz'
 
-export function createInitialProgress(unitId: string): UnitProgress {
-  return { unitId, attempts: 0, bestScore: 0, completedAt: null }
+export function createInitialProgress(ref: QuizRef): QuizProgress {
+  return { ...ref, attempts: 0, bestScore: 0, completedAt: null }
 }
 
 /**
@@ -12,12 +12,14 @@ export function createInitialProgress(unitId: string): UnitProgress {
  * @param completedAt ISO timestamp supplied by the caller, so this stays pure and testable.
  */
 export function recordAttempt(
-  previous: UnitProgress,
+  previous: QuizProgress,
   result: QuizResult,
   completedAt: string,
-): UnitProgress {
+): QuizProgress {
   return {
+    bookId: previous.bookId,
     unitId: previous.unitId,
+    quizId: previous.quizId,
     attempts: previous.attempts + 1,
     bestScore: Math.max(previous.bestScore, result.score),
     completedAt: previous.completedAt ?? completedAt,

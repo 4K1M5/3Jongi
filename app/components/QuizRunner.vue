@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import { onMounted, watch } from 'vue'
-import type { Unit } from '~~/core/domain/models'
+import type { Quiz } from '~~/core/domain/models'
 
-const props = defineProps<{ unit: Unit }>()
+const props = defineProps<{ quiz: Quiz; bookId: string; unitId: string }>()
 
 const { session, question, finished, answeredCount, totalCount, result, answer, restart }
-  = useQuizSession(props.unit)
-const { load, record } = useUnitProgress(props.unit.id)
+  = useQuizSession(props.quiz)
+const { load, record } = useQuizProgress({
+  bookId: props.bookId,
+  unitId: props.unitId,
+  quizId: props.quiz.id,
+})
 
 onMounted(load)
 
@@ -24,7 +28,7 @@ watch(finished, async (isDone) => {
         <span class="shrink-0 text-sm text-muted">{{ answeredCount }} / {{ totalCount }}</span>
       </div>
 
-      <MultipleChoiceQuestionView
+      <QuestionView
         v-if="question"
         :key="question.id"
         :question="question"
@@ -34,9 +38,10 @@ watch(finished, async (isDone) => {
 
     <QuizResultSummary
       v-else-if="result"
-      :unit="unit"
+      :quiz="quiz"
       :session="session"
       :result="result"
+      :unit-path="`/books/${bookId}/${unitId}`"
       @restart="restart"
     />
   </div>

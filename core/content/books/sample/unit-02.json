@@ -1,0 +1,138 @@
+{
+  "id": "unit-02",
+  "title": "Nature & Time",
+  "quizzes": [
+    {
+      "id": "set-1",
+      "title": "Nature · Set 1",
+      "questions": [
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q1",
+          "prompt": "하늘",
+          "choices": [
+            { "id": "c1", "label": "sky" },
+            { "id": "c2", "label": "sea" },
+            { "id": "c3", "label": "cloud" },
+            { "id": "c4", "label": "star" }
+          ],
+          "correctChoiceId": "c1"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q2",
+          "prompt": "바다",
+          "choices": [
+            { "id": "c1", "label": "lake" },
+            { "id": "c2", "label": "sea" },
+            { "id": "c3", "label": "river" },
+            { "id": "c4", "label": "rain" }
+          ],
+          "correctChoiceId": "c2"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q3",
+          "prompt": "산",
+          "choices": [
+            { "id": "c1", "label": "valley" },
+            { "id": "c2", "label": "hill" },
+            { "id": "c3", "label": "mountain" },
+            { "id": "c4", "label": "forest" }
+          ],
+          "correctChoiceId": "c3"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q4",
+          "prompt": "나무",
+          "choices": [
+            { "id": "c1", "label": "tree" },
+            { "id": "c2", "label": "grass" },
+            { "id": "c3", "label": "leaf" },
+            { "id": "c4", "label": "root" }
+          ],
+          "correctChoiceId": "c1"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q5",
+          "prompt": "꽃",
+          "choices": [
+            { "id": "c1", "label": "seed" },
+            { "id": "c2", "label": "flower" },
+            { "id": "c3", "label": "branch" },
+            { "id": "c4", "label": "garden" }
+          ],
+          "correctChoiceId": "c2"
+        }
+      ]
+    },
+    {
+      "id": "set-2",
+      "title": "Time · Set 2",
+      "questions": [
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q1",
+          "prompt": "해",
+          "choices": [
+            { "id": "c1", "label": "moon" },
+            { "id": "c2", "label": "sun" },
+            { "id": "c3", "label": "star" },
+            { "id": "c4", "label": "cloud" }
+          ],
+          "correctChoiceId": "c2"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q2",
+          "prompt": "달",
+          "choices": [
+            { "id": "c1", "label": "moon" },
+            { "id": "c2", "label": "sun" },
+            { "id": "c3", "label": "night" },
+            { "id": "c4", "label": "cloud" }
+          ],
+          "correctChoiceId": "c1"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q3",
+          "prompt": "별",
+          "choices": [
+            { "id": "c1", "label": "sky" },
+            { "id": "c2", "label": "star" },
+            { "id": "c3", "label": "light" },
+            { "id": "c4", "label": "moon" }
+          ],
+          "correctChoiceId": "c2"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q4",
+          "prompt": "아침",
+          "choices": [
+            { "id": "c1", "label": "morning" },
+            { "id": "c2", "label": "evening" },
+            { "id": "c3", "label": "noon" },
+            { "id": "c4", "label": "night" }
+          ],
+          "correctChoiceId": "c1"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q5",
+          "prompt": "밤",
+          "choices": [
+            { "id": "c1", "label": "day" },
+            { "id": "c2", "label": "night" },
+            { "id": "c3", "label": "evening" },
+            { "id": "c4", "label": "dawn" }
+          ],
+          "correctChoiceId": "c2"
+        }
+      ]
+    }
+  ]
+}

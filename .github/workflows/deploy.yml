@@ -27,6 +27,11 @@ jobs:
           node-version: 22
           cache: npm
 
+      # Node 22 bundles npm 10.9.x, whose lockfile resolver mis-generates this
+      # project's tree (npm install writes a package-lock.json that npm ci then
+      # rejects). npm 12 fixes it; pin it so CI matches the committed lock.
+      - run: npm install -g npm@12
+
       - run: npm ci
 
       - name: Test

@@ -1,0 +1,14 @@
+# --- local-only dev notes (reference private materials; never publish) ---
+*.local.md
+
+# --- build / dependencies ---
+node_modules/
+dist/
+build/
+.cache/
+
+# --- editor / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

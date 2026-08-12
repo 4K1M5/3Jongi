@@ -28,7 +28,7 @@ const review = computed(() =>
   <div class="space-y-6">
     <div class="text-center">
       <p class="text-sm uppercase tracking-widest text-muted">Your score</p>
-      <p class="text-5xl font-semibold text-primary">{{ percent }}%</p>
+      <p class="font-serif text-5xl font-semibold tabular-nums text-primary">{{ percent }}%</p>
       <p class="text-muted">{{ result.correct }} of {{ result.total }} correct</p>
     </div>
 

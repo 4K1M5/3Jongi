@@ -5,6 +5,10 @@
   /* System font stack with Korean fallbacks (Malgun Gothic on Windows). */
   --font-sans: system-ui, -apple-system, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
 
+  /* Serif display face for headings — mirrors the study-plan document. Korean
+     glyphs (Hangul) fall through to Malgun Gothic / Apple SD Gothic Neo. */
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Malgun Gothic", "Apple SD Gothic Neo", serif;
+
   /* Jade — the 3Jongi brand color (base ~= #2E6B5C). */
   --color-jade-50: #eef5f2;
   --color-jade-100: #d6e7e0;
@@ -17,4 +21,27 @@
   --color-jade-800: #1e4539;
   --color-jade-900: #17342b;
   --color-jade-950: #0c1d18;
+
+  /* Gold — 단청 accent from the study plan (base ~= #8A6D22, lighter #C9AC63
+     for dark surfaces). Registered as the Nuxt UI `secondary` color. */
+  --color-gold-50: #faf6e9;
+  --color-gold-100: #f0e9d5;
+  --color-gold-200: #e4d5a8;
+  --color-gold-300: #d4bd76;
+  --color-gold-400: #c9ac63;
+  --color-gold-500: #a9883a;
+  --color-gold-600: #8a6d22;
+  --color-gold-700: #6e561d;
+  --color-gold-800: #574319;
+  --color-gold-900: #453516;
+  --color-gold-950: #2a2515;
+}
+
+/* Headings carry the serif display face, matching the study-plan typography. */
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+  }
 }

@@ -19,7 +19,7 @@ const hasAttempts = computed(() => progress.value.attempts > 0)
         <UBadge
           v-if="hasAttempts"
           :label="`Best ${bestPercent}%`"
-          color="primary"
+          color="secondary"
           variant="subtle"
         />
       </div>

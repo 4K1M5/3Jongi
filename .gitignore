@@ -7,6 +7,17 @@ dist/
 build/
 .cache/
 
+# --- Nuxt / Nitro build outputs ---
+.nuxt/
+.output/
+.data/
+.nitro/
+
+# --- env ---
+.env
+.env.*
+!.env.example
+
 # --- editor / OS ---
 .vscode/
 .idea/

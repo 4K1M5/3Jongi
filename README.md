@@ -6,13 +6,22 @@ A self-study companion for **King Sejong Institute Korean** — short, per-unit 
 
 3Jongi is a small web app (GitHub Pages) offering unit-by-unit quizzes that **complement, not replace,** *세종학당 한국어 1* (and later Book 2): vocabulary recall, grammar checks, and quick review to validate what you just studied.
 
-**Status:** early scaffolding.
+**Status:** thin vertical slice scaffolded — one sample unit, a multiple-choice quiz, and localStorage progress, deployed to Pages.
 
 ## Structure
 
-- `docs/` — the GitHub Pages site (serve from `main` → `/docs`).
-- *(planned)* `src/` — app source.
-- *(planned)* `data/` — original quiz content only (never book text).
+Built with **Nuxt 4 + @nuxt/ui**, shipped as a prerendered static site.
+
+- `app/` — the Nuxt app: pages, components, composables, and theme.
+- `core/` — framework-agnostic domain logic, storage/content **ports** (interfaces), and their adapters. Kept free of Nuxt so it stays unit-testable and lets a real backend slot in behind the same interfaces later.
+- `.github/workflows/deploy.yml` — builds and deploys to Pages on push to `main`.
+
+```
+npm install     # install deps
+npm run dev      # local dev server
+npm test         # domain + storage unit tests
+npm run generate # static build → .output/public
+```
 
 ## Roadmap
 

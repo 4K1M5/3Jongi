@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme static {
+  /* System font stack with Korean fallbacks (Malgun Gothic on Windows). */
+  --font-sans: system-ui, -apple-system, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+
+  /* Jade — the 3Jongi brand color (base ~= #2E6B5C). */
+  --color-jade-50: #eef5f2;
+  --color-jade-100: #d6e7e0;
+  --color-jade-200: #aecfc2;
+  --color-jade-300: #7fb2a0;
+  --color-jade-400: #559280;
+  --color-jade-500: #3a7867;
+  --color-jade-600: #2e6b5c;
+  --color-jade-700: #255749;
+  --color-jade-800: #1e4539;
+  --color-jade-900: #17342b;
+  --color-jade-950: #0c1d18;
+}

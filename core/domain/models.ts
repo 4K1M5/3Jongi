@@ -1,34 +1,32 @@
 // Domain models for the quiz app. Framework-agnostic — no Nuxt/Vue imports.
+//
+// The content types (Book → Unit → Quiz → Question) are inferred from the zod
+// schemas in `schema.ts`, so there is one source of truth for both the runtime
+// contract and the compile-time types.
 
-/** The kinds of quiz question the app can render. The union grows as types are added. */
-export type QuizType = 'multiple-choice-meaning'
+export type {
+  Book,
+  Choice,
+  MultipleChoiceQuestion,
+  Question,
+  Quiz,
+  Unit,
+} from './schema'
 
-export interface Choice {
-  id: string
-  label: string
-}
+import type { Question } from './schema'
 
-export interface MultipleChoiceQuestion {
-  id: string
-  type: 'multiple-choice-meaning'
-  /** The word or phrase being tested (e.g. a Korean word). */
-  prompt: string
-  choices: Choice[]
-  correctChoiceId: string
-}
+/** The kinds of quiz question the app can render. Grows as the union grows. */
+export type QuizType = Question['type']
 
-/** A quiz question, discriminated by `type` so renderers can switch exhaustively. */
-export type Question = MultipleChoiceQuestion
-
-export interface Unit {
-  id: string
-  title: string
-  questions: Question[]
-}
-
-/** A learner's stored progress for a single unit. */
-export interface UnitProgress {
+/** Fully identifies one quiz within the Book → Unit → Quiz hierarchy. */
+export interface QuizRef {
+  bookId: string
   unitId: string
+  quizId: string
+}
+
+/** A learner's stored progress for a single quiz. */
+export interface QuizProgress extends QuizRef {
   attempts: number
   /** Best score achieved, as a ratio in the range 0..1. */
   bestScore: number

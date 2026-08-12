@@ -4,11 +4,12 @@ import { computed } from 'vue'
 const route = useRoute()
 const { content } = useRepositories()
 
+const bookId = computed(() => String(route.params.bookId))
 const unitId = computed(() => String(route.params.unitId))
 
 const { data: unit } = await useAsyncData(
-  `unit:${unitId.value}`,
-  () => content.getUnit(unitId.value),
+  `unit:${bookId.value}:${unitId.value}`,
+  () => content.getUnit(bookId.value, unitId.value),
 )
 
 if (!unit.value) {
@@ -33,6 +34,14 @@ if (!unit.value) {
 
     <h1 class="mb-8 text-xl font-semibold">{{ unit!.title }}</h1>
 
-    <QuizRunner :unit="unit!" />
+    <div class="grid gap-4 sm:grid-cols-2">
+      <QuizCard
+        v-for="quiz in unit!.quizzes"
+        :key="quiz.id"
+        :book-id="bookId"
+        :unit-id="unitId"
+        :quiz="quiz"
+      />
+    </div>
   </UContainer>
 </template>

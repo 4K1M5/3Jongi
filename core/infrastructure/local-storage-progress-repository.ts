@@ -1,11 +1,11 @@
-import type { UnitProgress } from '../domain/models'
+import type { QuizProgress, QuizRef } from '../domain/models'
 import type { ProgressRepository } from '../domain/ports'
 
 const STORAGE_VERSION = 'v1'
 const PROGRESS_KEY_PREFIX = `3jongi:${STORAGE_VERSION}:progress:`
 
-function progressKey(unitId: string): string {
-  return `${PROGRESS_KEY_PREFIX}${unitId}`
+function progressKey(ref: QuizRef): string {
+  return `${PROGRESS_KEY_PREFIX}${ref.bookId}:${ref.unitId}:${ref.quizId}`
 }
 
 /**
@@ -14,19 +14,22 @@ function progressKey(unitId: string): string {
  * the app degrades to "progress not saved" rather than crashing.
  */
 export class LocalStorageProgressRepository implements ProgressRepository {
-  getUnitProgress(unitId: string): Promise<UnitProgress | null> {
-    const raw = this.read(progressKey(unitId))
+  getQuizProgress(ref: QuizRef): Promise<QuizProgress | null> {
+    const raw = this.read(progressKey(ref))
     if (raw === null) return Promise.resolve(null)
     try {
-      return Promise.resolve(JSON.parse(raw) as UnitProgress)
+      return Promise.resolve(JSON.parse(raw) as QuizProgress)
     } catch (error) {
-      console.error(`[progress] discarding corrupt entry for unit "${unitId}"`, error)
+      console.error(
+        `[progress] discarding corrupt entry for quiz "${ref.bookId}/${ref.unitId}/${ref.quizId}"`,
+        error,
+      )
       return Promise.resolve(null)
     }
   }
 
-  saveUnitProgress(progress: UnitProgress): Promise<void> {
-    this.write(progressKey(progress.unitId), JSON.stringify(progress))
+  saveQuizProgress(progress: QuizProgress): Promise<void> {
+    this.write(progressKey(progress), JSON.stringify(progress))
     return Promise.resolve()
   }
 

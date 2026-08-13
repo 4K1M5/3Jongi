@@ -38,7 +38,7 @@
             { "id": "c1", "label": "Russia" },
             { "id": "c2", "label": "Mexico" },
             { "id": "c3", "label": "China" },
-            { "id": "c4", "label": "United States" }
+            { "id": "c4", "label": "America" }
           ],
           "correctChoiceId": "c4"
         },
@@ -60,7 +60,7 @@
           "prompt": "러시아",
           "choices": [
             { "id": "c1", "label": "Russia" },
-            { "id": "c2", "label": "United States" },
+            { "id": "c2", "label": "America" },
             { "id": "c3", "label": "China" },
             { "id": "c4", "label": "Korea" }
           ],
@@ -164,7 +164,7 @@
             { "id": "c1", "label": "you (polite)" },
             { "id": "c2", "label": "I (humble)" },
             { "id": "c3", "label": "we (humble)" },
-            { "id": "c4", "label": "you (plural)" }
+            { "id": "c4", "label": "we (plain)" }
           ],
           "correctChoiceId": "c2"
         }
@@ -179,10 +179,10 @@
           "id": "q1",
           "prompt": "자기소개",
           "choices": [
-            { "id": "c1", "label": "greeting" },
+            { "id": "c1", "label": "business card" },
             { "id": "c2", "label": "self-introduction" },
-            { "id": "c3", "label": "name" },
-            { "id": "c4", "label": "conversation" }
+            { "id": "c3", "label": "first meeting" },
+            { "id": "c4", "label": "personal details" }
           ],
           "correctChoiceId": "c2"
         },
@@ -227,8 +227,8 @@
           "id": "q5",
           "prompt": "안녕하세요?",
           "choices": [
-            { "id": "c1", "label": "hello (polite)" },
-            { "id": "c2", "label": "hello (formal)" },
+            { "id": "c1", "label": "hello (everyday polite)" },
+            { "id": "c2", "label": "hello (very formal)" },
             { "id": "c3", "label": "self-introduction" },
             { "id": "c4", "label": "name" }
           ],
@@ -240,9 +240,9 @@
           "prompt": "안녕하십니까?",
           "choices": [
             { "id": "c1", "label": "English (language)" },
-            { "id": "c2", "label": "hello (polite)" },
+            { "id": "c2", "label": "hello (everyday polite)" },
             { "id": "c3", "label": "self-introduction" },
-            { "id": "c4", "label": "hello (formal)" }
+            { "id": "c4", "label": "hello (very formal)" }
           ],
           "correctChoiceId": "c4"
         }

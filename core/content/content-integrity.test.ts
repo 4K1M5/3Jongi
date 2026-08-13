@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { loadBooksFromModules } from './load-books'
+import { findQuestionQualityIssues } from './question-quality'
 
 // Validates the REAL content files that ship in this repo. This is the content
 // gate: `npm test` (and therefore CI, before `generate`) fails here if any
@@ -27,5 +28,12 @@ describe('shipped content', () => {
         }
       }
     }
+  })
+
+  it('has no content-quality issues the schema cannot catch', () => {
+    const books = loadBooksFromModules(contentModules as Record<string, unknown>)
+    const issues = findQuestionQualityIssues(books)
+    // Mapped to strings so a failure names the exact question and rule.
+    expect(issues.map((issue) => `${issue.path} [${issue.rule}] ${issue.message}`)).toEqual([])
   })
 })

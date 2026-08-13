@@ -1,0 +1,300 @@
+{
+  "id": "unit-02",
+  "title": "2. Family & Occupations",
+  "quizzes": [
+    {
+      "id": "set-1",
+      "title": "2. Family & Occupations · Set 1",
+      "questions": [
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q1",
+          "prompt": "아버지",
+          "choices": [
+            { "id": "c1", "label": "grandfather" },
+            { "id": "c2", "label": "father" },
+            { "id": "c3", "label": "parents" },
+            { "id": "c4", "label": "mother" }
+          ],
+          "correctChoiceId": "c2"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q2",
+          "prompt": "어머니",
+          "choices": [
+            { "id": "c1", "label": "father" },
+            { "id": "c2", "label": "grandmother" },
+            { "id": "c3", "label": "parents" },
+            { "id": "c4", "label": "mother" }
+          ],
+          "correctChoiceId": "c4"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q3",
+          "prompt": "누나",
+          "choices": [
+            { "id": "c1", "label": "older sister (male speaker)" },
+            { "id": "c2", "label": "older sister (female speaker)" },
+            { "id": "c3", "label": "older brother (male speaker)" },
+            { "id": "c4", "label": "older brother (female speaker)" }
+          ],
+          "correctChoiceId": "c1"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q4",
+          "prompt": "언니",
+          "choices": [
+            { "id": "c1", "label": "older brother (male speaker)" },
+            { "id": "c2", "label": "older sister (male speaker)" },
+            { "id": "c3", "label": "older brother (female speaker)" },
+            { "id": "c4", "label": "older sister (female speaker)" }
+          ],
+          "correctChoiceId": "c4"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q5",
+          "prompt": "형",
+          "choices": [
+            { "id": "c1", "label": "older sister (female speaker)" },
+            { "id": "c2", "label": "older brother (male speaker)" },
+            { "id": "c3", "label": "older brother (female speaker)" },
+            { "id": "c4", "label": "older sister (male speaker)" }
+          ],
+          "correctChoiceId": "c2"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q6",
+          "prompt": "오빠",
+          "choices": [
+            { "id": "c1", "label": "older sister (male speaker)" },
+            { "id": "c2", "label": "older brother (male speaker)" },
+            { "id": "c3", "label": "older brother (female speaker)" },
+            { "id": "c4", "label": "older sister (female speaker)" }
+          ],
+          "correctChoiceId": "c3"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q7",
+          "prompt": "동생",
+          "choices": [
+            { "id": "c1", "label": "only child" },
+            { "id": "c2", "label": "younger sibling" },
+            { "id": "c3", "label": "eldest child" },
+            { "id": "c4", "label": "youngest child" }
+          ],
+          "correctChoiceId": "c2"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q8",
+          "prompt": "부모님",
+          "choices": [
+            { "id": "c1", "label": "family" },
+            { "id": "c2", "label": "relatives" },
+            { "id": "c3", "label": "parents" },
+            { "id": "c4", "label": "grandparents" }
+          ],
+          "correctChoiceId": "c3"
+        }
+      ]
+    },
+    {
+      "id": "set-2",
+      "title": "2. Family & Occupations · Set 2",
+      "questions": [
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q1",
+          "prompt": "직업",
+          "choices": [
+            { "id": "c1", "label": "salary" },
+            { "id": "c2", "label": "job" },
+            { "id": "c3", "label": "workplace" },
+            { "id": "c4", "label": "company" }
+          ],
+          "correctChoiceId": "c2"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q2",
+          "prompt": "가수",
+          "choices": [
+            { "id": "c1", "label": "actor" },
+            { "id": "c2", "label": "painter" },
+            { "id": "c3", "label": "singer" },
+            { "id": "c4", "label": "dancer" }
+          ],
+          "correctChoiceId": "c3"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q3",
+          "prompt": "배우",
+          "choices": [
+            { "id": "c1", "label": "singer" },
+            { "id": "c2", "label": "actor" },
+            { "id": "c3", "label": "director" },
+            { "id": "c4", "label": "writer" }
+          ],
+          "correctChoiceId": "c2"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q4",
+          "prompt": "의사",
+          "choices": [
+            { "id": "c1", "label": "nurse" },
+            { "id": "c2", "label": "scientist" },
+            { "id": "c3", "label": "doctor" },
+            { "id": "c4", "label": "pharmacist" }
+          ],
+          "correctChoiceId": "c3"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q5",
+          "prompt": "회사원",
+          "choices": [
+            { "id": "c1", "label": "civil servant" },
+            { "id": "c2", "label": "factory worker" },
+            { "id": "c3", "label": "shop owner" },
+            { "id": "c4", "label": "office worker" }
+          ],
+          "correctChoiceId": "c4"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q6",
+          "prompt": "대학생",
+          "choices": [
+            { "id": "c1", "label": "high school student" },
+            { "id": "c2", "label": "graduate student" },
+            { "id": "c3", "label": "university student" },
+            { "id": "c4", "label": "exchange student" }
+          ],
+          "correctChoiceId": "c3"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q7",
+          "prompt": "가족",
+          "choices": [
+            { "id": "c1", "label": "relatives" },
+            { "id": "c2", "label": "ancestors" },
+            { "id": "c3", "label": "parents" },
+            { "id": "c4", "label": "family" }
+          ],
+          "correctChoiceId": "c4"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q8",
+          "prompt": "사진",
+          "choices": [
+            { "id": "c1", "label": "camera" },
+            { "id": "c2", "label": "picture" },
+            { "id": "c3", "label": "album" },
+            { "id": "c4", "label": "mirror" }
+          ],
+          "correctChoiceId": "c2"
+        }
+      ]
+    },
+    {
+      "id": "set-3",
+      "title": "2. Family & Occupations · Set 3",
+      "questions": [
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q1",
+          "prompt": "아니다",
+          "choices": [
+            { "id": "c1", "label": "to be" },
+            { "id": "c2", "label": "to not be" },
+            { "id": "c3", "label": "to not exist" },
+            { "id": "c4", "label": "to become" }
+          ],
+          "correctChoiceId": "c2"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q2",
+          "prompt": "아니요",
+          "choices": [
+            { "id": "c1", "label": "no" },
+            { "id": "c2", "label": "yes" },
+            { "id": "c3", "label": "maybe" },
+            { "id": "c4", "label": "okay" }
+          ],
+          "correctChoiceId": "c1"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q3",
+          "prompt": "소개하다",
+          "choices": [
+            { "id": "c1", "label": "to greet" },
+            { "id": "c2", "label": "to invite" },
+            { "id": "c3", "label": "to introduce" },
+            { "id": "c4", "label": "to explain" }
+          ],
+          "correctChoiceId": "c3"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q4",
+          "prompt": "그리고",
+          "choices": [
+            { "id": "c1", "label": "but" },
+            { "id": "c2", "label": "so" },
+            { "id": "c3", "label": "or" },
+            { "id": "c4", "label": "and" }
+          ],
+          "correctChoiceId": "c4"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q5",
+          "prompt": "이름이 뭐예요?",
+          "choices": [
+            { "id": "c1", "label": "What's your job?" },
+            { "id": "c2", "label": "What's your name?" },
+            { "id": "c3", "label": "Where are you from?" },
+            { "id": "c4", "label": "How old are you?" }
+          ],
+          "correctChoiceId": "c2"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q6",
+          "prompt": "직업이 뭐예요?",
+          "choices": [
+            { "id": "c1", "label": "What do you study?" },
+            { "id": "c2", "label": "Where do you work?" },
+            { "id": "c3", "label": "What's your name?" },
+            { "id": "c4", "label": "What's your job?" }
+          ],
+          "correctChoiceId": "c4"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q7",
+          "prompt": "우리 가족이에요",
+          "choices": [
+            { "id": "c1", "label": "This is my house." },
+            { "id": "c2", "label": "This is my family." },
+            { "id": "c3", "label": "This is my friend." },
+            { "id": "c4", "label": "This is my school." }
+          ],
+          "correctChoiceId": "c2"
+        }
+      ]
+    }
+  ]
+}

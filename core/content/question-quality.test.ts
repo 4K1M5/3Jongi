@@ -84,6 +84,20 @@ describe('findQuestionQualityIssues', () => {
     )
   })
 
+  it('flags a prompt duplicated only by trailing punctuation', () => {
+    const books = [
+      bookWith(
+        { id: 'set-1', questions: [question('q1', '안녕하세요?', ['hello', 'name', 'country', 'friend'])] },
+        { id: 'set-2', questions: [question('q1', '안녕하세요', ['greeting', 'sky', 'water', 'road'])] },
+      ),
+    ]
+    const issues = findQuestionQualityIssues(books)
+    expect(issues.map((issue) => issue.rule)).toContain('duplicate-prompt')
+    expect(issues.find((issue) => issue.rule === 'duplicate-prompt')!.path).toBe(
+      'ksi-korean-1/unit-01/set-2/q1',
+    )
+  })
+
   it('flags two different words shipping the same correct gloss', () => {
     const books = [
       bookWith(

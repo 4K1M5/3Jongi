@@ -29,8 +29,9 @@ npm run generate # static build → .output/public
 
 ## Roadmap
 
-- [ ] Per-unit quiz UI — multiple choice, matching, type-the-word recall
+- [x] Per-unit quiz UI — multiple choice
+- [ ] Per-unit quiz UI — matching, type-the-word recall
 - [ ] Grammar-point checks per unit
-- [ ] Progress tracking (localStorage)
-- [ ] Generate quiz items from the private materials with AI → review → publish originals here
+- [x] Progress tracking (localStorage)
+- [ ] Generate quiz items from the private materials with AI → review → publish originals here — done for units 1–2 (42 questions, 6 quizzes); continuing through unit 10
 - [ ] Extend to Book 2

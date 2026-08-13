@@ -2,6 +2,40 @@
 
 _Design spec — 2026-08-13._
 
+> **Superseded during implementation.** Authoring units 1–2 deliberately
+> departed from this spec in four places. The "Notes for the reviewer"
+> section at the end of
+> [`docs/superpowers/plans/2026-08-13-per-unit-mcq-content.md`](../plans/2026-08-13-per-unit-mcq-content.md)
+> is authoritative for these; this spec's design reasoning otherwise still
+> stands and is not rewritten below.
+>
+> - **Set sizing.** [Quiz shape](#quiz-shape) below says `round(words / 8)`.
+>   The shipped rule is `ceil(words / 9)`, because `round(words / 8)` breaks
+>   this same spec's own stated 6–9 questions-per-set invariant once a word
+>   count changes; `ceil(words / 9)` is what actually guarantees it.
+> - **Sibling qualifiers — read this one before authoring units 3–10.**
+>   [Disambiguating qualifiers](#disambiguating-qualifiers) below gives the
+>   example `older sister (of a man)` / `older sister (of a woman)`. **Do not
+>   copy that wording** — in English it reads as "the older sister belonging
+>   to some man," which is not what it means. The shipped wording is
+>   `older sister (male speaker)` / `older sister (female speaker)`: it names
+>   who is speaking, not whose sister it is. Use the shipped wording for every
+>   sibling pair in units 3–10.
+> - **Greeting qualifiers, for the same reason.** The shipped convention for
+>   the two "hello" greetings is `hello (everyday polite)` / `hello (very
+>   formal)`, **not** `hello (polite)` / `hello (formal)`. `hello (formal)`
+>   would have been a defect rather than a harmless variant: 안녕하세요 is
+>   itself widely taught *as* the formal greeting, so `hello (formal)` was
+>   defensible as a correct answer for 안녕하세요 too — exactly the failure
+>   a disambiguating qualifier exists to prevent, since it must identify one
+>   word, not remain arguable for two.
+> - **Unit 1 word count.** The [Quiz shape](#quiz-shape) table below lists
+>   unit-01 at 20 words. Shipped is **19** — the extended entry `안녕하다`
+>   was dropped as a duplicate of `안녕하세요?`.
+> - **Pilot totals.** [Pipeline and sequencing](#pipeline-and-sequencing)
+>   below frames the units 1–2 pilot as 43 questions. Units 1–2 shipped
+>   **42 questions in 6 quizzes**.
+
 ## Goal
 
 Replace the placeholder `sample` book with real, reviewed multiple-choice

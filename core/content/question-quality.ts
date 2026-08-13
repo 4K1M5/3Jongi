@@ -46,6 +46,22 @@ export function normalizeGloss(label: string): string {
     .replace(/^to /, '')
 }
 
+/**
+ * Compares Korean prompts for duplicate detection, ignoring surrounding
+ * whitespace and a trailing sentence-ending mark (`?`, `.`, `!`) so
+ * "안녕하세요?" and "안녕하세요" are recognized as the same prompt rather than
+ * shipping as two questions that drill the same word.
+ *
+ * Deliberately NOT `normalizeGloss`: that function lowercases and strips
+ * English "to " / "to be " prefixes, which is meaningless for Korean prompts
+ * and would couple this rule to an unrelated one. Korean has no case to fold,
+ * so no lowercasing happens here, and genuinely different Korean words never
+ * collide under this normalization.
+ */
+function normalizePromptForComparison(prompt: string): string {
+  return prompt.trim().replace(/[?.!]+$/, '')
+}
+
 function locateQuestions(book: Book): LocatedQuestion[] {
   return book.units.flatMap((unit) =>
     unit.quizzes.flatMap((quiz) =>
@@ -133,7 +149,7 @@ function findIssuesInBook(book: Book): QualityIssue[] {
   const duplicatePrompts = findDuplicatesAcrossQuestions(
     located,
     'duplicate-prompt',
-    (question) => question.prompt.trim(),
+    (question) => normalizePromptForComparison(question.prompt),
     (key, firstPath) => `prompt "${key}" is already drilled at ${firstPath}`,
   )
 

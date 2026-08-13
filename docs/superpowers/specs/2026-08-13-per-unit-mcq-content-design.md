@@ -31,7 +31,7 @@ learner already knows it.
 | Quiz shape | Target ~8 questions per set, balanced; 40 quizzes total |
 | Distractors | Pool-first (same part of speech and semantic field), authored only when the pool has no peer |
 | Direction | KO→EN only for this pass |
-| Sequencing | Author unit-01 end to end, get sign-off, then scale to units 2–10 |
+| Sequencing | Author units 1–2 end to end, get sign-off, then scale to units 3–10 |
 
 ## Book identity and repo hygiene
 
@@ -268,13 +268,27 @@ human review, not by the build.
 
 ## Pipeline and sequencing
 
-1. **Pilot — unit-01 end to end.** 20 words in 3 quizzes: 20 questions, 80
-   options, 60 distractor decisions. Authored, validated, then reviewed by the
-   user for content accuracy _and_ clicked through in the running app.
+1. **Pilot — units 1 and 2 end to end.** 43 words in 6 quizzes: 43 questions,
+   172 options, 129 distractor decisions. Authored, validated, then reviewed by
+   the user for content accuracy _and_ clicked through in the running app. Two
+   units rather than one, so a single real tester has enough to work through.
 2. **Sign-off gate.** The pilot establishes the worked reference. A systemic
    mistake in the conventions gets caught once here rather than 40 times later.
-3. **Scale to units 2–10.** Authored per unit against unit-01 as the reference,
+3. **Scale to units 3–10.** Authored per unit against units 1–2 as the reference,
    with the validation checks as the mechanical gate, followed by a review pass.
+
+Unit 2 is a deliberately good pilot subject: it carries the corpus's hardest
+collision cluster — four sibling words, same part of speech and same semantic
+field, collapsing into two English glosses — which is exactly what stresses both
+the qualifier rule and the symmetric-qualifier rule. It also contains the
+full-sentence entries flagged under [Cleanups](#cleanups-before-authoring), so
+the pilot resolves that question rather than deferring it.
+
+**Known blind spot in the pilot:** units 1 and 2 are almost entirely nouns and
+contain no adjectives, so the `to be X` convention and same-POS adjective
+distractor matching go untested. To surface that risk early rather than in unit 9,
+**unit 6 is authored first after sign-off** — it is the most verb- and
+adjective-heavy unit in scope.
 
 ### Verification
 

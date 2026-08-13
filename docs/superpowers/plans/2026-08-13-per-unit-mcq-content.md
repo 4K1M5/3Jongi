@@ -545,7 +545,7 @@ generate) now fails on an authoring defect, naming the exact question."
 **Content decisions already made — apply them, do not re-derive:**
 
 1. **Drop the extended entry `안녕하다` ("hello").** It duplicates `안녕하세요?` and its dictionary form is not how the greeting is used. This takes unit 1 from 20 words to **19**.
-2. `안녕하세요?` → `hello (polite)` and `안녕하십니까?` → `hello (formal)`. These two collide on a bare "Hello?" and must be qualified symmetrically.
+2. `안녕하세요?` → `hello (everyday polite)` and `안녕하십니까?` → `hello (very formal)`. These two collide on a bare "Hello?" and must be qualified symmetrically. Plain-English register labels, **not** `(polite)` / `(formal)`: 안녕하세요 is itself widely taught *as* the formal greeting (against plain 안녕), so `hello (formal)` would be defensible as a correct answer for it — a guard-1 breach the automated gate cannot detect. The real distinction is 해요체 vs 합니다체, and the labels must let a beginner act on it without knowing those terms.
 3. `자기소개` → `self-introduction` (lowercase; the source has an inconsistent capital).
 4. `영어` → `English (language)`, so it cannot read as a nationality.
 5. `저` → `I (humble)`.

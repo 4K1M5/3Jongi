@@ -46,19 +46,27 @@ export function answerAndAdvance(
  * real: add a member to the Question union without handling it here and this
  * file stops compiling.
  *
- * Guards on `question.type` rather than `question` itself: with only one
- * question type today, `Question` is a plain object type, not yet a real
- * union, so TypeScript can only narrow the *discriminant* to `never` here.
- * Once a second question type exists, `Question` becomes a true union and an
- * unhandled case's `type` literal fails to narrow to `never`, so this keeps
- * catching the gap either way.
+ * Guards on the discriminant captured in `questionType`, not `question.type`
+ * accessed inline, and not `question` itself:
+ *  - With only one question type today, `Question` is a plain object type,
+ *    not yet a real union, so TypeScript can only narrow a *discriminant
+ *    value* to `never` here, not the whole object.
+ *  - Once a second question type exists and every case is handled, `Question`
+ *    narrows to `never` in the `default` branch by ordinary discriminated-
+ *    union elimination — at that point `question.type` accessed inline would
+ *    itself be a property access on `never` and fail to compile on *correct*
+ *    code. Capturing `questionType` once, before the switch narrows
+ *    `question`, avoids that: the switch narrows `questionType` itself, so
+ *    this keeps compiling once handled and keeps failing when a case is
+ *    missing, in both the one-member and multi-member states of `Question`.
  */
 export function grade(question: Question, answer: string | undefined): boolean {
-  switch (question.type) {
+  const questionType = question.type
+  switch (questionType) {
     case 'multiple-choice-meaning':
       return answer === question.correctChoiceId
     default:
-      return assertUnhandledQuestionType(question.type)
+      return assertUnhandledQuestionType(questionType)
   }
 }
 

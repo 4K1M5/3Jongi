@@ -6,7 +6,11 @@ A self-study companion for **King Sejong Institute Korean** — short, per-unit 
 
 3Jongi is a small web app (GitHub Pages) offering unit-by-unit quizzes that **complement, not replace,** *세종학당 한국어 1* (and later Book 2): vocabulary recall, grammar checks, and quick review to validate what you just studied.
 
-**Status:** thin vertical slice scaffolded — one sample unit, a multiple-choice quiz, and localStorage progress, deployed to Pages.
+> An independent personal-study project. Not affiliated with, endorsed by, or
+> produced by the King Sejong Institute. All quiz content here is original,
+> written for this app.
+
+**Status:** *Korean 1* ships units 1–2 — 42 original multiple-choice questions across 6 quizzes — with localStorage progress, machine-enforced content-quality checks, and a typecheck gate in CI.
 
 ## Structure
 

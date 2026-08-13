@@ -1,6 +1,9 @@
 # --- local-only dev notes (reference private materials; never publish) ---
 *.local.md
 
+# --- agent scratch (ledgers, task briefs, review packages) ---
+.superpowers/
+
 # --- build / dependencies ---
 node_modules/
 dist/

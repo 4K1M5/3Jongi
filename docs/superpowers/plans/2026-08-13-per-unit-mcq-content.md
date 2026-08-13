@@ -291,6 +291,12 @@ describe('findQuestionQualityIssues', () => {
     ]
     expect(findQuestionQualityIssues(books)).toEqual([])
   })
+
+  it('scopes uniqueness to one book, so two books may teach the same word', () => {
+    const first = bookWith({ id: 'set-1', questions: [question('q1', '나라', FOUR_DISTINCT)] })
+    const second = { ...bookWith({ id: 'set-1', questions: [question('q1', '나라', FOUR_DISTINCT)] }), id: 'ksi-korean-2' }
+    expect(findQuestionQualityIssues([first, second])).toEqual([])
+  })
 })
 ```
 
@@ -353,15 +359,13 @@ export function normalizeGloss(label: string): string {
     .replace(/^to /, '')
 }
 
-function locateQuestions(books: readonly Book[]): LocatedQuestion[] {
-  return books.flatMap((book) =>
-    book.units.flatMap((unit) =>
-      unit.quizzes.flatMap((quiz) =>
-        quiz.questions.map((question) => ({
-          question,
-          path: `${book.id}/${unit.id}/${quiz.id}/${question.id}`,
-        })),
-      ),
+function locateQuestions(book: Book): LocatedQuestion[] {
+  return book.units.flatMap((unit) =>
+    unit.quizzes.flatMap((quiz) =>
+      quiz.questions.map((question) => ({
+        question,
+        path: `${book.id}/${unit.id}/${quiz.id}/${question.id}`,
+      })),
     ),
   )
 }
@@ -423,7 +427,15 @@ function findDuplicatesAcrossQuestions(
 }
 
 export function findQuestionQualityIssues(books: readonly Book[]): QualityIssue[] {
-  const located = locateQuestions(books)
+  return books.flatMap((book) => findIssuesInBook(book))
+}
+
+// Uniqueness is scoped to ONE book, not to the whole content set. Each book
+// drills a given word once, but two books may legitimately teach the same word
+// with the same gloss, so their prompts and correct answers must not collide
+// with each other.
+function findIssuesInBook(book: Book): QualityIssue[] {
+  const located = locateQuestions(book)
 
   const perQuestion = located.flatMap((item) =>
     [findChoiceCountIssue(item), findDuplicateChoiceLabelIssue(item)].filter(
@@ -454,11 +466,11 @@ export function findQuestionQualityIssues(books: readonly Book[]): QualityIssue[
 
 Run: `npx vitest run core/content/question-quality.test.ts`
 
-Expected: PASS, 8 tests.
+Expected: PASS, 9 tests.
 
 - [ ] **Step 5: Run the whole suite**
 
-Run: `npm test` — Expected: PASS (36 existing + 8 new = 44).
+Run: `npm test` — Expected: PASS (36 existing + 9 new = 45).
 
 Run: `npm run typecheck` — Expected: PASS, 0 errors.
 

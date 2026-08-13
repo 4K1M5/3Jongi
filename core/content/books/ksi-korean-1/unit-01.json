@@ -1,0 +1,252 @@
+{
+  "id": "unit-01",
+  "title": "1. Introductions & Countries",
+  "quizzes": [
+    {
+      "id": "set-1",
+      "title": "1. Introductions & Countries · Set 1",
+      "questions": [
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q1",
+          "prompt": "나라",
+          "choices": [
+            { "id": "c1", "label": "country" },
+            { "id": "c2", "label": "person" },
+            { "id": "c3", "label": "name" },
+            { "id": "c4", "label": "friend" }
+          ],
+          "correctChoiceId": "c1"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q2",
+          "prompt": "한국",
+          "choices": [
+            { "id": "c1", "label": "China" },
+            { "id": "c2", "label": "Korea" },
+            { "id": "c3", "label": "Vietnam" },
+            { "id": "c4", "label": "Mexico" }
+          ],
+          "correctChoiceId": "c2"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q3",
+          "prompt": "미국",
+          "choices": [
+            { "id": "c1", "label": "Russia" },
+            { "id": "c2", "label": "Mexico" },
+            { "id": "c3", "label": "China" },
+            { "id": "c4", "label": "United States" }
+          ],
+          "correctChoiceId": "c4"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q4",
+          "prompt": "멕시코",
+          "choices": [
+            { "id": "c1", "label": "Vietnam" },
+            { "id": "c2", "label": "Russia" },
+            { "id": "c3", "label": "Mexico" },
+            { "id": "c4", "label": "Korea" }
+          ],
+          "correctChoiceId": "c3"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q5",
+          "prompt": "러시아",
+          "choices": [
+            { "id": "c1", "label": "Russia" },
+            { "id": "c2", "label": "United States" },
+            { "id": "c3", "label": "China" },
+            { "id": "c4", "label": "Korea" }
+          ],
+          "correctChoiceId": "c1"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q6",
+          "prompt": "베트남",
+          "choices": [
+            { "id": "c1", "label": "Korea" },
+            { "id": "c2", "label": "China" },
+            { "id": "c3", "label": "Mexico" },
+            { "id": "c4", "label": "Vietnam" }
+          ],
+          "correctChoiceId": "c4"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q7",
+          "prompt": "중국",
+          "choices": [
+            { "id": "c1", "label": "Vietnam" },
+            { "id": "c2", "label": "China" },
+            { "id": "c3", "label": "Russia" },
+            { "id": "c4", "label": "Korea" }
+          ],
+          "correctChoiceId": "c2"
+        }
+      ]
+    },
+    {
+      "id": "set-2",
+      "title": "1. Introductions & Countries · Set 2",
+      "questions": [
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q1",
+          "prompt": "선생님",
+          "choices": [
+            { "id": "c1", "label": "friend" },
+            { "id": "c2", "label": "teacher" },
+            { "id": "c3", "label": "student" },
+            { "id": "c4", "label": "classmate" }
+          ],
+          "correctChoiceId": "c2"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q2",
+          "prompt": "학생",
+          "choices": [
+            { "id": "c1", "label": "teacher" },
+            { "id": "c2", "label": "friend" },
+            { "id": "c3", "label": "student" },
+            { "id": "c4", "label": "neighbor" }
+          ],
+          "correctChoiceId": "c3"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q3",
+          "prompt": "사람",
+          "choices": [
+            { "id": "c1", "label": "person" },
+            { "id": "c2", "label": "friend" },
+            { "id": "c3", "label": "child" },
+            { "id": "c4", "label": "neighbor" }
+          ],
+          "correctChoiceId": "c1"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q4",
+          "prompt": "친구",
+          "choices": [
+            { "id": "c1", "label": "neighbor" },
+            { "id": "c2", "label": "classmate" },
+            { "id": "c3", "label": "teacher" },
+            { "id": "c4", "label": "friend" }
+          ],
+          "correctChoiceId": "c4"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q5",
+          "prompt": "여러분",
+          "choices": [
+            { "id": "c1", "label": "family" },
+            { "id": "c2", "label": "neighbor" },
+            { "id": "c3", "label": "everyone" },
+            { "id": "c4", "label": "classmate" }
+          ],
+          "correctChoiceId": "c3"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q6",
+          "prompt": "저",
+          "choices": [
+            { "id": "c1", "label": "you (polite)" },
+            { "id": "c2", "label": "I (humble)" },
+            { "id": "c3", "label": "we (humble)" },
+            { "id": "c4", "label": "you (plural)" }
+          ],
+          "correctChoiceId": "c2"
+        }
+      ]
+    },
+    {
+      "id": "set-3",
+      "title": "1. Introductions & Countries · Set 3",
+      "questions": [
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q1",
+          "prompt": "자기소개",
+          "choices": [
+            { "id": "c1", "label": "greeting" },
+            { "id": "c2", "label": "self-introduction" },
+            { "id": "c3", "label": "name" },
+            { "id": "c4", "label": "conversation" }
+          ],
+          "correctChoiceId": "c2"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q2",
+          "prompt": "이름",
+          "choices": [
+            { "id": "c1", "label": "age" },
+            { "id": "c2", "label": "address" },
+            { "id": "c3", "label": "name" },
+            { "id": "c4", "label": "nickname" }
+          ],
+          "correctChoiceId": "c3"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q3",
+          "prompt": "영어",
+          "choices": [
+            { "id": "c1", "label": "Chinese (language)" },
+            { "id": "c2", "label": "Korean (language)" },
+            { "id": "c3", "label": "Russian (language)" },
+            { "id": "c4", "label": "English (language)" }
+          ],
+          "correctChoiceId": "c4"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q4",
+          "prompt": "어느",
+          "choices": [
+            { "id": "c1", "label": "where" },
+            { "id": "c2", "label": "which" },
+            { "id": "c3", "label": "when" },
+            { "id": "c4", "label": "who" }
+          ],
+          "correctChoiceId": "c2"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q5",
+          "prompt": "안녕하세요?",
+          "choices": [
+            { "id": "c1", "label": "hello (polite)" },
+            { "id": "c2", "label": "hello (formal)" },
+            { "id": "c3", "label": "self-introduction" },
+            { "id": "c4", "label": "name" }
+          ],
+          "correctChoiceId": "c1"
+        },
+        {
+          "type": "multiple-choice-meaning",
+          "id": "q6",
+          "prompt": "안녕하십니까?",
+          "choices": [
+            { "id": "c1", "label": "English (language)" },
+            { "id": "c2", "label": "hello (polite)" },
+            { "id": "c3", "label": "self-introduction" },
+            { "id": "c4", "label": "hello (formal)" }
+          ],
+          "correctChoiceId": "c4"
+        }
+      ]
+    }
+  ]
+}

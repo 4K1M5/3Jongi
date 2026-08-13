@@ -112,12 +112,21 @@ export const bookManifestSchema = z.object({
   title: nonEmpty,
 })
 
+// Content types, inferred from the schemas above so the runtime contract and the
+// compile-time types cannot drift. Consumers import these via `models.ts`.
+export type Choice = z.infer<typeof choiceSchema>
+export type MultipleChoiceQuestion = z.infer<typeof multipleChoiceQuestionSchema>
+export type Question = z.infer<typeof questionSchema>
+export type Quiz = z.infer<typeof quizSchema>
+export type Unit = z.infer<typeof unitSchema>
+export type Book = z.infer<typeof bookSchema>
+
 /** Validates a single book, throwing a ZodError with a path to any bad item. */
-export function parseBook(raw: unknown): z.infer<typeof bookSchema> {
+export function parseBook(raw: unknown): Book {
   return bookSchema.parse(raw)
 }
 
 /** Validates a list of books. */
-export function parseBooks(raw: unknown): z.infer<typeof bookSchema>[] {
+export function parseBooks(raw: unknown): Book[] {
   return z.array(bookSchema).parse(raw)
 }

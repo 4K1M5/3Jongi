@@ -34,6 +34,12 @@ jobs:
 
       - run: npm ci
 
+      # models.ts once re-exported types schema.ts never exported, and nothing
+      # caught it: vitest and Vite erase types without checking. This gate stops
+      # the type foundation rotting again.
+      - name: Typecheck
+        run: npm run typecheck
+
       - name: Test
         run: npm test
 

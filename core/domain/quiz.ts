@@ -42,14 +42,28 @@ export function answerAndAdvance(
 
 /**
  * Scores a single answer. Dispatches on `question.type` so each question type
- * owns its own correctness rule; the exhaustive switch makes TypeScript flag any
- * new type that has not been handled here.
+ * owns its own correctness rule. The `never` default is what makes that promise
+ * real: add a member to the Question union without handling it here and this
+ * file stops compiling.
+ *
+ * Guards on `question.type` rather than `question` itself: with only one
+ * question type today, `Question` is a plain object type, not yet a real
+ * union, so TypeScript can only narrow the *discriminant* to `never` here.
+ * Once a second question type exists, `Question` becomes a true union and an
+ * unhandled case's `type` literal fails to narrow to `never`, so this keeps
+ * catching the gap either way.
  */
 export function grade(question: Question, answer: string | undefined): boolean {
   switch (question.type) {
     case 'multiple-choice-meaning':
       return answer === question.correctChoiceId
+    default:
+      return assertUnhandledQuestionType(question.type)
   }
+}
+
+function assertUnhandledQuestionType(questionType: never): never {
+  throw new Error(`Unhandled question type: ${questionType}`)
 }
 
 export function scoreQuiz(session: QuizSession): QuizResult {
